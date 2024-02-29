@@ -23,11 +23,13 @@ def run (job, _generator = None):
 
         output_image = Image.open('./output/image.png')
 
-        print(upload_url)
-
         # # output
         output_url = extract_origin_pathname(upload_url)
-        output = { 'output_url': output_url }
+
+        output = {
+            'type': 'upscale',
+            'output_url': output_url
+        }
 
         if debug:
             output_image.save('sample.png')
