@@ -34,13 +34,5 @@ def sc (self, clip_input, images):
     return images, [False for i in images]
 
 def download_url (url, folder_path):
-    # 获取文件名
-    file_name = url.split('/')[-1]
-
-    # 构造保存路径
     save_path = os.path.join(folder_path, 'image.png')
-
-    # 下载文件
     urllib.request.urlretrieve(url, save_path)
-
-    print(f"文件已保存到: {save_path}")

@@ -1,16 +1,9 @@
-import math
 import requests
-
-import numpy as np
-import torch
+import subprocess
+from PIL import Image
 import runpod
 
-import subprocess
-
-
-
-
-from utils import upload_image, download_url
+from utils import extract_origin_pathname, upload_image, download_url
 
 def run (job, _generator = None):
     # prepare task
@@ -23,11 +16,14 @@ def run (job, _generator = None):
         input_url = _input.get('input_url')
         upload_url = _input.get('upload_url')
 
-
         download_url(input_url, './input')
 
-        command = "python ./ESRGAN/upscale.py ./ESRGAN/4x-UltraSharp.pth"
-        subprocess.run(command, shell=True)
+        command = 'python ./ESRGAN/upscale.py ./ESRGAN/4x-UltraSharp.pth'
+        subprocess.run(command, shell = True)
+
+        output_image = Image.open('./output/image.png')
+
+        print(upload_url)
 
         # # output
         output_url = extract_origin_pathname(upload_url)
