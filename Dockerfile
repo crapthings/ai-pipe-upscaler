@@ -10,6 +10,8 @@ WORKDIR /workspace
 
 COPY ESRGAN ./ESRGAN
 COPY scripts ./scripts
+COPY input ./input
+COPY output ./output
 COPY *.py .
 
 RUN apt update && apt install curl -y
