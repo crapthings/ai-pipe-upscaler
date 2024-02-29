@@ -8,6 +8,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 WORKDIR /workspace
 
+COPY ESRGAN ./ESRGAN
 COPY scripts ./scripts
 COPY *.py .
 
