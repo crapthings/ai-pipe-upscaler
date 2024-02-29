@@ -14,7 +14,7 @@ COPY input ./input
 COPY output ./output
 COPY *.py .
 
-RUN apt update && apt install curl -y
+RUN apt update && apt install curl ffmpeg libsm6 libxext6 -y
 RUN chmod +x ./scripts/install.sh
 RUN ./scripts/install.sh
 RUN ./scripts/download.sh
